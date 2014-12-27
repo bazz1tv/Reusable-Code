@@ -47,10 +47,11 @@ namespace dblclick
     return 0;
   }
 
+  // Call after SDL_Init
   void init()
   {
-    SDL_Init(SDL_INIT_TIMER);
-    timerid = SDL_AddTimer(DBLCLICK_TIMEWINDOW, &dblclicktimer, NULL);
+    SDL_InitSubSystem(SDL_INIT_TIMER);
+    //timerid = SDL_AddTimer(DBLCLICK_TIMEWINDOW, &dblclicktimer, NULL);
   }
 
   
@@ -80,7 +81,7 @@ namespace dblclick
         }
         else 
         {
-          dblclick::timerid = SDL_AddTimer(800, &dblclick::dblclicktimer, NULL);
+          dblclick::timerid = SDL_AddTimer(DBLCLICK_TIMEWINDOW, &dblclick::dblclicktimer, NULL);
         }
       }
     }
